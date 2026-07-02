@@ -9,7 +9,7 @@ export default function RecruiterControlSection() {
   const recruiterTasks = [
     "Approve and edit auto-generated Job Descriptions",
     "Customize and adjust skill vector weights",
-    "Approve candidate matching and fuzzy scores",
+    "Approve candidate matching and candidate scores",
     "Refine customized interview screening scripts",
     "Manage interviews, offers, and final hire approvals",
     "Own client relationships and candidate experiences",
@@ -19,7 +19,7 @@ export default function RecruiterControlSection() {
     "Generate structured Job Descriptions from raw briefs",
     "Extract key skills and propose initial weights",
     "Parse resume PDFs and extract structured metadata",
-    "Calculate fuzzy semantic match scores (0-100)",
+    "Calculate semantic candidate scores (0-100)",
     "Draft personalized screening questions based on skill gaps",
     "Sync real-time page context to the Copilot assistant",
   ];

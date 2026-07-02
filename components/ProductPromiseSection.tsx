@@ -28,8 +28,8 @@ export default function ProductPromiseSection() {
     {
       icon: Binary,
       tag: "[ MODULE_04 ]",
-      title: "Fuzzy Candidate Matching",
-      desc: "Rank candidates using a semantic fuzzy match score (0-100). AI explains candidate fit, highlights strengths, and flags skill gaps relative to the job requirements.",
+      title: "Candidate Score Matching",
+      desc: "Rank candidates using a semantic candidate score (0-100). AI explains candidate fit, highlights strengths, and flags skill gaps relative to the job requirements.",
     },
     {
       icon: HelpCircle,

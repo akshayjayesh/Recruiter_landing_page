@@ -60,12 +60,12 @@ export default function ProductPreviewSection() {
       label: "Candidate Pool",
       icon: Users,
       title: "Talent Sourcing Pool",
-      desc: "Ingest, parse, and browse your global candidate profiles. Automatically parse resumes and search through candidates with fuzzy skills matching.",
+      desc: "Ingest, parse, and browse your global candidate profiles. Automatically parse resumes and search through candidates with candidate score matching.",
       mockup: (
         <div className="bg-neutral-900 border border-white/5 rounded-sm p-4 space-y-3 text-[10px]">
           <div className="flex gap-2 items-center bg-neutral-950 border border-white/5 px-2.5 py-1.5 rounded-sm">
             <Search className="w-3.5 h-3.5 text-neutral-500" />
-            <span className="text-neutral-500 font-mono text-[9px]">Fuzzy query: "Go developer with kubernetes"</span>
+            <span className="text-neutral-500 font-mono text-[9px]">Candidate score query: "Go developer with kubernetes"</span>
           </div>
           {/* Candidate list table preview */}
           <div className="space-y-2 font-mono">

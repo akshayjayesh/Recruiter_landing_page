@@ -35,15 +35,15 @@ export default function AIWorkflowSection() {
     },
     {
       code: "0x05",
-      name: "Fuzzy_Match_Layer()",
+      name: "Candidate_Score_Layer()",
       summary: "Semantic scoring calculations",
-      desc: "Evaluating candidate experience vectors against the job's weighted skill matrix, accounting for synonyms and adjacent tech stacks.",
+      desc: "Evaluating candidate experience vectors against the job's weighted skill matrix to generate an accurate candidate score.",
     },
     {
       code: "0x06",
       name: "Smart_Questions_Gen()",
       summary: "Interview script tailoring",
-      desc: "Automatically drafting custom questions targeting the exact strengths and skill gaps identified during fuzzy matching.",
+      desc: "Automatically drafting custom questions targeting the exact strengths and skill gaps identified during candidate scoring.",
     },
   ];
 
@@ -147,59 +147,151 @@ export default function AIWorkflowSection() {
               </div>
 
               {/* Data Node Flow */}
-              <div className="space-y-4 font-mono text-[10px]">
+              <div className="space-y-4 font-mono text-[10px] min-h-[250px] flex flex-col justify-center">
                 
-                {/* Input Card */}
-                <div className="bg-[#1C1917]/50 border border-white/5 p-3 rounded-sm">
-                  <div className="text-primary uppercase tracking-widest text-[8px] mb-1.5">INPUT_MANDATE</div>
-                  <div className="text-neutral-400 text-[9px]">
-                    "Looking for a Senior Go Engineer with Kubernetes and clean code architecture experience..."
-                  </div>
-                </div>
-
-                <div className="flex justify-center">
-                  <ArrowDown className="w-4 h-4 text-primary animate-bounce" />
-                </div>
-
-                {/* AI Draft Card */}
-                <div className="bg-[#1C1917]/50 border border-white/5 p-3 rounded-sm">
-                  <div className="text-[#16A34A] uppercase tracking-widest text-[8px] mb-1.5">OUTPUT_AI_JOB_DRAFT</div>
-                  <div className="space-y-1">
-                    <div className="h-1 bg-[#16A34A]/25 rounded-full w-full"></div>
-                    <div className="h-1 bg-[#16A34A]/25 rounded-full w-4/5"></div>
-                    <div className="h-1 bg-[#16A34A]/25 rounded-full w-2/3"></div>
-                  </div>
-                </div>
-
-                <div className="flex justify-center">
-                  <ArrowDown className="w-4 h-4 text-primary" />
-                </div>
-
-                {/* Match Layer Card */}
-                <div className="bg-primary/5 border border-primary/20 p-4 rounded-sm flex flex-col items-center text-center space-y-3">
-                  <div className="w-7 h-7 bg-primary/10 rounded-sm flex items-center justify-center">
-                    <Cpu className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-white text-xs">FUZZY_MATCH_ENGINE</div>
-                    <p className="text-neutral-500 text-[8px] uppercase tracking-wider mt-0.5">Vector Similarity Layer</p>
-                  </div>
-                  <div className="flex gap-4 justify-around w-full border-t border-white/5 pt-3">
-                    <div>
-                      <div className="text-[8px] text-neutral-500 uppercase tracking-widest">Candidate_V</div>
-                      <div className="text-xs text-white font-bold mt-0.5">0.985</div>
+                {activeStep === 0 && (
+                  <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} className="space-y-3">
+                    <div className="bg-[#1C1917]/50 border border-white/5 p-3 rounded-sm">
+                      <div className="text-primary uppercase tracking-widest text-[8px] mb-1.5 flex items-center gap-2"><span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">1</span> RAW_MANDATE</div>
+                      <div className="text-neutral-400 text-[9px] italic">
+                        "Looking for a Senior Go Engineer with Kubernetes and clean code architecture experience..."
+                      </div>
                     </div>
-                    <div>
-                      <div className="text-[8px] text-neutral-500 uppercase tracking-widest">Candidate_A</div>
-                      <div className="text-xs text-white font-bold mt-0.5">0.842</div>
+                    <div className="flex justify-center"><ArrowDown className="w-4 h-4 text-primary/50" /></div>
+                    <div className="bg-[#1C1917]/50 border border-white/5 p-3 rounded-sm">
+                      <div className="text-primary uppercase tracking-widest text-[8px] mb-1.5 flex items-center gap-2"><span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">2</span> NLP_ENTITY_EXTRACTION</div>
+                      <div className="space-y-1">
+                        <div className="text-[9px] text-white flex justify-between"><span className="text-neutral-500">Role:</span> Senior Go Engineer</div>
+                        <div className="text-[9px] text-white flex justify-between"><span className="text-neutral-500">Stack:</span> Go, Kubernetes</div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="text-[8px] text-neutral-500 uppercase tracking-widest">Candidate_S</div>
-                      <div className="text-xs text-white font-bold mt-0.5">0.760</div>
+                    <div className="flex justify-center"><ArrowDown className="w-4 h-4 text-primary/50" /></div>
+                    <div className="bg-[#1C1917]/50 border border-white/5 p-3 rounded-sm">
+                      <div className="text-[#16A34A] uppercase tracking-widest text-[8px] mb-1.5 flex items-center gap-2"><span className="w-4 h-4 rounded-full bg-[#16A34A]/20 flex items-center justify-center text-[#16A34A] font-bold">3</span> STRUCTURED_JSON_READY</div>
                     </div>
-                  </div>
-                </div>
+                  </motion.div>
+                )}
 
+                {activeStep === 1 && (
+                  <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} className="space-y-3">
+                    <div className="bg-[#1C1917]/50 border border-white/5 p-3 rounded-sm">
+                      <div className="text-primary uppercase tracking-widest text-[8px] mb-1.5 flex items-center gap-2"><span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">1</span> INGEST_STRUCTURED_DATA</div>
+                      <div className="text-neutral-400 text-[9px]">Loading parameter tokens...</div>
+                    </div>
+                    <div className="flex justify-center"><ArrowDown className="w-4 h-4 text-primary/50 animate-bounce" /></div>
+                    <div className="bg-primary/5 border border-primary/20 p-3 rounded-sm">
+                      <div className="text-primary uppercase tracking-widest text-[8px] mb-1.5 flex items-center gap-2"><span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">2</span> MARKET_CROSS_REFERENCE</div>
+                      <div className="text-[9px] text-neutral-300">Evaluating standard compensations and duties for 'Senior Go Engineer'...</div>
+                    </div>
+                    <div className="flex justify-center"><ArrowDown className="w-4 h-4 text-primary/50" /></div>
+                    <div className="bg-[#1C1917]/50 border border-white/5 p-3 rounded-sm">
+                      <div className="text-[#16A34A] uppercase tracking-widest text-[8px] mb-1.5 flex items-center gap-2"><span className="w-4 h-4 rounded-full bg-[#16A34A]/20 flex items-center justify-center text-[#16A34A] font-bold">3</span> DRAFT_JD_GENERATED</div>
+                      <div className="space-y-2 mt-2">
+                        <div className="h-1.5 bg-[#16A34A]/50 rounded-full w-full"></div>
+                        <div className="h-1.5 bg-[#16A34A]/50 rounded-full w-4/5"></div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {activeStep === 2 && (
+                  <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} className="space-y-3">
+                    <div className="bg-[#1C1917]/50 border border-white/5 p-3 rounded-sm">
+                      <div className="text-primary uppercase tracking-widest text-[8px] mb-1.5 flex items-center gap-2"><span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">1</span> EXTRACT_CORE_SKILLS</div>
+                      <div className="flex gap-2 flex-wrap">
+                        <span className="px-2 py-0.5 bg-neutral-800 rounded-sm text-[9px]">Golang</span>
+                        <span className="px-2 py-0.5 bg-neutral-800 rounded-sm text-[9px]">Kubernetes</span>
+                        <span className="px-2 py-0.5 bg-neutral-800 rounded-sm text-[9px]">AWS</span>
+                      </div>
+                    </div>
+                    <div className="flex justify-center"><ArrowDown className="w-4 h-4 text-primary/50" /></div>
+                    <div className="bg-[#1C1917]/50 border border-white/5 p-3 rounded-sm space-y-2">
+                      <div className="text-primary uppercase tracking-widest text-[8px] mb-1.5 flex items-center gap-2"><span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">2</span> ASSIGN_VECTOR_WEIGHTS</div>
+                      <div className="flex justify-between items-center text-xs">
+                        <span className="text-neutral-300">Golang</span>
+                        <span className="text-primary font-bold">1.0 (Must Have)</span>
+                      </div>
+                      <div className="flex justify-between items-center text-xs">
+                        <span className="text-neutral-300">Kubernetes</span>
+                        <span className="text-primary/70">0.8 (Preferred)</span>
+                      </div>
+                      <div className="flex justify-between items-center text-xs">
+                        <span className="text-neutral-300">AWS</span>
+                        <span className="text-neutral-500">0.5 (Bonus)</span>
+                      </div>
+                    </div>
+                    <div className="flex justify-center"><ArrowDown className="w-4 h-4 text-primary/50" /></div>
+                    <div className="bg-yellow-500/10 border border-yellow-500/20 p-3 rounded-sm">
+                      <div className="text-yellow-500 uppercase tracking-widest text-[8px] flex items-center gap-2"><span className="w-4 h-4 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-500 font-bold">3</span> RECRUITER_VERIFICATION_REQUIRED</div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {activeStep === 3 && (
+                  <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} className="space-y-3">
+                    <div className="bg-[#1C1917]/50 border border-white/5 p-3 rounded-sm flex items-center gap-3">
+                      <span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-[8px]">1</span>
+                      <div className="text-primary uppercase tracking-widest text-[8px]">UPLOAD_CANDIDATE.PDF</div>
+                    </div>
+                    <div className="flex justify-center"><ArrowDown className="w-4 h-4 text-primary/50 animate-bounce" /></div>
+                    <div className="bg-primary/5 border border-primary/20 p-3 rounded-sm flex items-center gap-3">
+                      <span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-[8px]">2</span>
+                      <div className="text-primary uppercase tracking-widest text-[8px]">OCR_&_TEXT_NORMALIZATION</div>
+                    </div>
+                    <div className="flex justify-center"><ArrowDown className="w-4 h-4 text-primary/50" /></div>
+                    <div className="bg-[#1C1917]/50 border border-white/5 p-3 rounded-sm">
+                      <div className="text-[#16A34A] uppercase tracking-widest text-[8px] mb-2 flex items-center gap-2"><span className="w-4 h-4 rounded-full bg-[#16A34A]/20 flex items-center justify-center text-[#16A34A] font-bold">3</span> ENTITIES_EXTRACTED</div>
+                      <div className="space-y-2 pl-6">
+                        <div className="text-[10px] text-white border-l-2 border-[#16A34A]/50 pl-2">Experience: 5 years</div>
+                        <div className="text-[10px] text-white border-l-2 border-[#16A34A]/50 pl-2">Education: BS Computer Science</div>
+                        <div className="text-[10px] text-white border-l-2 border-[#16A34A]/50 pl-2">Skills: Go, Docker, K8s, GCP</div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {activeStep === 4 && (
+                  <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} className="space-y-3">
+                    <div className="bg-[#1C1917]/50 border border-white/5 p-3 rounded-sm flex justify-between items-center">
+                      <div className="text-primary uppercase tracking-widest text-[8px] flex items-center gap-2"><span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">1</span> LOAD_VECTORS</div>
+                      <div className="text-[9px] text-neutral-500">Job_Vector vs Candidate_Vector</div>
+                    </div>
+                    <div className="flex justify-center"><ArrowDown className="w-4 h-4 text-primary/50" /></div>
+                    <div className="bg-[#1C1917]/50 border border-white/5 p-3 rounded-sm">
+                      <div className="text-primary uppercase tracking-widest text-[8px] mb-1.5 flex items-center gap-2"><span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">2</span> COMPUTE_SEMANTIC_DISTANCE</div>
+                      <div className="h-1.5 bg-neutral-800 rounded-full w-full overflow-hidden mt-2 relative">
+                        <motion.div initial={{ width: "0%" }} animate={{ width: "98%" }} transition={{ duration: 1 }} className="absolute top-0 left-0 h-full bg-primary"></motion.div>
+                      </div>
+                    </div>
+                    <div className="flex justify-center"><ArrowDown className="w-4 h-4 text-primary/50" /></div>
+                    <div className="bg-primary/5 border border-primary/20 p-4 rounded-sm flex flex-col items-center text-center space-y-2">
+                      <div className="text-[#16A34A] uppercase tracking-widest text-[8px] flex items-center gap-2"><span className="w-4 h-4 rounded-full bg-[#16A34A]/20 flex items-center justify-center text-[#16A34A] font-bold">3</span> FINAL_CANDIDATE_SCORE</div>
+                      <div className="text-2xl text-white font-bold mt-1">98%</div>
+                      <p className="text-neutral-500 text-[8px] uppercase tracking-wider">High Match Probability</p>
+                    </div>
+                  </motion.div>
+                )}
+
+                {activeStep === 5 && (
+                  <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} className="space-y-3">
+                    <div className="bg-[#1C1917]/50 border border-white/5 p-3 rounded-sm">
+                      <div className="text-primary uppercase tracking-widest text-[8px] mb-1.5 flex items-center gap-2"><span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">1</span> IDENTIFY_SKILL_GAPS</div>
+                      <div className="text-[9px] text-neutral-400">Candidate scored low on 'AWS deployment experience'</div>
+                    </div>
+                    <div className="flex justify-center"><ArrowDown className="w-4 h-4 text-primary/50" /></div>
+                    <div className="bg-primary/5 border border-primary/20 p-3 rounded-sm flex items-center gap-3">
+                      <span className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-[8px]">2</span>
+                      <div className="text-primary uppercase tracking-widest text-[8px]">QUERY_LLM_FOR_TARGETED_QA</div>
+                    </div>
+                    <div className="flex justify-center"><ArrowDown className="w-4 h-4 text-primary/50" /></div>
+                    <div className="bg-[#1C1917]/50 border border-white/5 p-3 rounded-sm space-y-2">
+                      <div className="text-[#16A34A] uppercase tracking-widest text-[8px] mb-2 flex items-center gap-2"><span className="w-4 h-4 rounded-full bg-[#16A34A]/20 flex items-center justify-center text-[#16A34A] font-bold">3</span> TAILORED_SCRIPT_OUTPUT</div>
+                      <div className="text-[10px] text-neutral-300 bg-black/40 p-2.5 rounded border border-white/5">
+                        <span className="text-primary mr-1">Q1.</span> How would you adapt your Kubernetes experience to an AWS environment using EKS?
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
               </div>
             </GlassCard>
           </div>

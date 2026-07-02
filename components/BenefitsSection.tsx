@@ -14,7 +14,7 @@ export default function BenefitsSection() {
     },
     {
       icon: Eye,
-      title: "Transparent Fuzzy Scores",
+      title: "Transparent Candidate Scores",
       desc: "No black boxes. Detailed text explanations break down exact candidate strengths, skill gaps, and match justifications.",
     },
     {

@@ -70,7 +70,7 @@ AI is deeply integrated into the platform's lifecycle, automating time-consuming
   * The resume text is extracted and packaged with the target job description.
   * A matching webhook (`N8N_MATCH_CANDIDATES_URL`) fires to n8n to analyze the candidate's fit against the weighted skills.
   * **Structured AI Outputs**: The AI writes back to the database:
-    * **Fuzzy Match Score**: A ranking metric from `0` to `100`.
+    * **Candidate Match Score**: A ranking metric from `0` to `100`.
     * **Strengths**: A list of matches between candidate experience and job criteria.
     * **Skill Gaps**: Areas where the candidate falls short.
     * **AI Reasoning**: A written summary explaining the score to the recruiter.
