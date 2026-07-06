@@ -39,7 +39,7 @@ export default function HowItWorksSection() {
   ];
 
   return (
-    <section id="how-it-works" className="py-24 px-6 md:px-8 bg-[#12100E] border-y border-white/5 overflow-hidden relative">
+    <section id="how-it-works" className="py-24 px-6 md:px-8 bg-muted/30 border-y border-border overflow-hidden relative">
       {/* Subtle background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -60,7 +60,7 @@ export default function HowItWorksSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-2xl md:text-3xl font-tight font-extrabold text-white uppercase tracking-wider"
+            className="text-2xl md:text-3xl font-tight font-extrabold text-foreground uppercase tracking-wider"
           >
             From requirement to ranked candidates in five steps.
           </motion.h2>
@@ -70,7 +70,7 @@ export default function HowItWorksSection() {
         <div className="relative">
           
           {/* Desktop Connecting Line */}
-          <div className="hidden md:block absolute top-6 left-[10%] right-[10%] h-0.5 bg-white/5 z-0">
+          <div className="hidden md:block absolute top-6 left-[10%] right-[10%] h-0.5 bg-border z-0">
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -81,7 +81,7 @@ export default function HowItWorksSection() {
           </div>
 
           {/* Mobile Connecting Line */}
-          <div className="md:hidden absolute left-6 top-6 bottom-6 w-0.5 bg-white/5 z-0">
+          <div className="md:hidden absolute left-6 top-6 bottom-6 w-0.5 bg-border z-0">
             <motion.div
               initial={{ scaleY: 0 }}
               whileInView={{ scaleY: 1 }}
@@ -106,23 +106,23 @@ export default function HowItWorksSection() {
                 >
                   {/* Step Number / Icon Container */}
                   <div className="relative md:mb-6 flex-shrink-0">
-                    <div className="w-12 h-12 bg-neutral-900 border border-white/10 hover:border-primary/55 rounded-sm flex items-center justify-center text-white transition-all duration-300">
-                      <span className="font-mono text-xs font-bold text-neutral-400 group-hover:text-primary">
+                    <div className="w-12 h-12 bg-muted border border-border hover:border-primary/55 rounded-sm flex items-center justify-center text-foreground transition-all duration-300">
+                      <span className="font-mono text-xs font-bold text-muted-foreground group-hover:text-primary">
                         {step.num}
                       </span>
                     </div>
                     {/* Floating smaller active icon badge */}
-                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-primary border border-[#0C0A09] rounded-sm flex items-center justify-center">
+                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-primary border border-background rounded-sm flex items-center justify-center">
                       <Icon className="w-2.5 h-2.5 text-white" />
                     </div>
                   </div>
 
                   {/* Step Copy */}
                   <div className="space-y-2">
-                    <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
+                    <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-foreground">
                       {step.title}
                     </h3>
-                    <p className="text-neutral-400 text-[11px] leading-relaxed max-w-[200px] md:mx-auto">
+                    <p className="text-muted-foreground text-[11px] leading-relaxed max-w-[200px] md:mx-auto">
                       {step.desc}
                     </p>
                   </div>

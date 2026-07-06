@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function CTASection() {
   return (
-    <section id="cta" className="py-32 px-6 md:px-8 relative overflow-hidden bg-[#12100E] border-t border-white/5 text-center">
+    <section id="cta" className="py-32 px-6 md:px-8 relative overflow-hidden bg-muted/30 border-t border-border text-center">
       {/* Background glow overlay */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -26,7 +26,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-3xl md:text-4xl lg:text-[42px] font-tight font-extrabold text-white tracking-tight leading-tight uppercase"
+            className="text-3xl md:text-4xl lg:text-[42px] font-tight font-extrabold text-foreground tracking-tight leading-tight uppercase"
           >
             Ready to simplify recruitment operations with AI?
           </motion.h2>
@@ -35,7 +35,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-neutral-400 font-sans text-xs md:text-sm max-w-xl mx-auto leading-relaxed"
+            className="text-muted-foreground font-sans text-xs md:text-sm max-w-xl mx-auto leading-relaxed"
           >
             Move from scattered hiring workflows to one AI-assisted command center for jobs, candidates, screening, and stage tracking. No credit card required.
           </motion.p>
@@ -59,7 +59,7 @@ export default function CTASection() {
           
           <Link
             href="/"
-            className="w-full sm:w-auto px-8 py-3.5 border border-white/10 hover:bg-white/5 text-white font-mono text-xs uppercase tracking-wider font-bold rounded-sm flex items-center justify-center gap-2 cursor-pointer transition-all"
+            className="w-full sm:w-auto px-8 py-3.5 border border-border hover:bg-accent hover:text-accent-foreground text-foreground font-mono text-xs uppercase tracking-wider font-bold rounded-sm flex items-center justify-center gap-2 cursor-pointer transition-all"
           >
             Login to Recruiter App
           </Link>

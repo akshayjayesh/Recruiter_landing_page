@@ -46,7 +46,7 @@ export default function ProductPromiseSection() {
   ];
 
   return (
-    <section className="py-24 px-6 md:px-8 bg-[#0C0A09] relative">
+    <section className="py-24 px-6 md:px-8 bg-background relative">
       <div className="max-w-7xl mx-auto space-y-16">
         
         {/* Title Block */}
@@ -64,7 +64,7 @@ export default function ProductPromiseSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-2xl md:text-3xl font-tight font-extrabold text-white uppercase tracking-wider"
+            className="text-2xl md:text-3xl font-tight font-extrabold text-foreground uppercase tracking-wider"
           >
             One command center for AI-assisted hiring operations.
           </motion.h2>
@@ -73,7 +73,7 @@ export default function ProductPromiseSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-neutral-400 font-sans text-xs md:text-sm"
+            className="text-muted-foreground font-sans text-xs md:text-sm"
           >
             Empower your recruitment team with deep automations built on recruiter-approved models.
           </motion.p>
@@ -99,13 +99,13 @@ export default function ProductPromiseSection() {
                     <span className="font-mono text-primary text-[10px] uppercase tracking-widest">
                       {promise.tag}
                     </span>
-                    <Icon className="w-5 h-5 text-neutral-400" />
+                    <Icon className="w-5 h-5 text-muted-foreground" />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
+                    <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-foreground">
                       {promise.title}
                     </h3>
-                    <p className="text-neutral-400 text-xs leading-relaxed">
+                    <p className="text-muted-foreground text-xs leading-relaxed">
                       {promise.desc}
                     </p>
                   </div>

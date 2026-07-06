@@ -18,7 +18,7 @@ export const metadata = {
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-[#0C0A09] text-white selection:bg-primary/30 selection:text-white font-sans antialiased">
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 selection:text-white font-sans antialiased">
       <LandingHeader />
       
       <main>

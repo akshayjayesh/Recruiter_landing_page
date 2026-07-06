@@ -50,7 +50,7 @@ export default function BenefitsSection() {
   ];
 
   return (
-    <section id="benefits" className="py-24 px-6 md:px-8 bg-[#0C0A09] relative">
+    <section id="benefits" className="py-24 px-6 md:px-8 bg-background relative">
       <div className="max-w-7xl mx-auto space-y-16">
         
         {/* Title Block */}
@@ -68,7 +68,7 @@ export default function BenefitsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-2xl md:text-3xl font-tight font-extrabold text-white uppercase tracking-wider"
+            className="text-2xl md:text-3xl font-tight font-extrabold text-foreground uppercase tracking-wider"
           >
             Built for recruiters who need speed, control, and clarity.
           </motion.h2>
@@ -77,7 +77,7 @@ export default function BenefitsSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-neutral-400 font-sans text-xs md:text-sm"
+            className="text-muted-foreground font-sans text-xs md:text-sm"
           >
             Engineered from the ground up for elite executive search firms and internal high-growth hiring teams.
           </motion.p>
@@ -95,13 +95,13 @@ export default function BenefitsSection() {
                 className="flex flex-col justify-between h-56 min-h-[220px]"
               >
                 <div className="space-y-4">
-                  <div className="w-9 h-9 bg-neutral-900 border border-white/5 flex items-center justify-center rounded-sm">
+                  <div className="w-9 h-9 bg-muted border border-border flex items-center justify-center rounded-sm">
                     <Icon className="w-4 h-4 text-primary" />
                   </div>
-                  <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
+                  <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-foreground">
                     {benefit.title}
                   </h3>
-                  <p className="text-neutral-400 text-[11px] leading-relaxed">
+                  <p className="text-muted-foreground text-[11px] leading-relaxed">
                     {benefit.desc}
                   </p>
                 </div>

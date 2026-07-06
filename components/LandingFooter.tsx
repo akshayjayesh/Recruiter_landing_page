@@ -23,16 +23,16 @@ export default function LandingFooter() {
   };
 
   return (
-    <footer className="bg-[#0C0A09] border-t border-white/5 py-12 px-6 md:px-8">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-[11px] font-mono text-neutral-500 uppercase">
+    <footer className="bg-background border-t border-border py-12 px-6 md:px-8">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-[11px] font-mono text-muted-foreground uppercase">
         
         {/* Brand Group */}
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2 select-none group">
             <KozkerLogo className="w-5 h-5 transition-transform group-hover:scale-105" />
-            <span className="font-tight font-extrabold text-[12px] tracking-wider text-white">KOZKER</span>
+            <span className="font-tight font-extrabold text-[12px] tracking-wider text-foreground">KOZKER</span>
           </div>
-          <span className="text-neutral-600 font-mono text-[9px]">v3.0.0-stable</span>
+          <span className="text-muted-foreground font-mono text-[9px]">v3.0.0-stable</span>
         </div>
 
         {/* Links Group */}
@@ -60,7 +60,7 @@ export default function LandingFooter() {
         </div>
 
         {/* Copyright */}
-        <p className="text-neutral-650 text-[9px] text-center md:text-right">
+        <p className="text-muted-foreground text-[9px] text-center md:text-right">
           © {new Date().getFullYear()} Kozker Recruiter AI. All rights reserved.
         </p>
 
